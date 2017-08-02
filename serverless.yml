@@ -1,0 +1,45 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: device-lambda # NOTE: update this with your service name
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: eu-west-1
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - xray:PutTelemetryRecords
+        - xray:PutTraceSegments
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "s3:GetObject"
+      Resource: "*"
+
+functions:
+  resolve:
+    handler: handler.handler
+
+    environment:
+       #DATA_FILE_URL: http://127.0.0.1:8080/data.json
+       DATA_FILE_S3_BUCKET: "connected-tv-public-unversioned"
+       DATA_FILE_S3_PATH: "device-identification-data/data.json"
+       AWS_XRAY_CONTEXT_MISSING: LOG_ERROR

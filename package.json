@@ -1,0 +1,19 @@
+{
+  "name": "device-lambda-experiment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aws": "0.0.3-2",
+    "aws-sdk": "^2.94.0",
+    "aws-xray-sdk": "^1.1.2",
+    "melanite": "^1.1.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
