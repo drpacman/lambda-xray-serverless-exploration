@@ -1,5 +1,7 @@
 Experiment to learn a bit of serverless, lambda, AWS x-ray.
 
+The lambda executes [Melanite](https://github.com/bbc/melanite) device resolution matcher used for [TAL](https://github.com/bbc/tal) apps
+
 ### Set up
 
 ```
@@ -23,10 +25,11 @@ To run local test loop
 #### Data file location
 
 If using S3:
-* DATA_FILE_S3_BUCKET
-* DATA_FILE_S3_PATH 
+* DATA_FILE_S3_BUCKET - s3 bucket name
+* DATA_FILE_S3_PATH - s3 key
+
 If using http:
-* DATA_FILE_URL
+* DATA_FILE_URL - URL to supported data file
 
 #### Failure testing
 Added injectable error and latency values with environment variables
